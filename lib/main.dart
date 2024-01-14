@@ -16,14 +16,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(),
-      home: Home(),
+      home: const Home(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomeState createState() => _HomeState();
 }
 
@@ -71,14 +74,14 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Joke Generator'),
+        title: const Text('Joke Generator'),
         centerTitle: true,
       ),
       body: Center(
         child: _errorMessage.isNotEmpty
             ? Text(
                 _errorMessage,
-                style: TextStyle(color: Colors.red),
+                style: const TextStyle(color: Colors.red),
               )
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -87,14 +90,14 @@ class _HomeState extends State<Home> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       _joke!.setup,
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     _joke!.punchline,
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                   ),
                 ],
               ),
@@ -102,7 +105,7 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         onPressed: fetchJoke,
         tooltip: 'Next Joke',
-        child: Icon(Icons.refresh),
+        child: const Icon(Icons.refresh),
       ),
     );
   }
